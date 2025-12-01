@@ -385,7 +385,7 @@ In a MAS, the complexity is distributed:
 **2.** Architectural Scalability: It provides the necessary structure to easily integrate complex future requirements:
 
   - Adding a ***Research Planner Agent (P2.1)*** is now just another module reporting to the Supervisor.
-  - 
+    
   - Adding a ***Knowledge Graph Agent (P2.2)*** is a simple integration without affecting the core search tools.The MAS moves the
   system from a fragile, custom script to a professional, scalable, and highly resilient Research Operating System.
 
