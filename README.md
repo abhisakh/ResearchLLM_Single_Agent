@@ -296,17 +296,43 @@ Project Requirement,Status,Achievement Level
 The missing elements are primarily structurally complex features (Knowledge Graphs) and UI/Utility features 
 (PDF Upload, Visualization, BibTeX). Your current system is a perfect functional core waiting for these external wrappers and advanced modules.
 
-**1.** Missing Core Feature: Research Planning Module (P1)
+**1.** Missing Core Feature: ***Research Planning Module (P1)***
 This is the most crucial missing piece of Project 1, as it requires a completely new mode of thinking from the LLM.
 
 Why it's important: It moves the agent from merely reporting what exists to planning what to do next (Hypothesis generation, step-by-step methods). T
 his requires a dedicated Research Planner Node as you correctly identified.
 
-**2.** Missing Utility Feature: PDF Extraction Pipeline (P2)
+**2.** Missing Utility Feature: ***PDF Extraction Pipeline (P2)***
 This is the main functional gap for Project 2.
 
 Why it's important: It unlocks the ability to use user-supplied documents (e.g., a paper you just wrote) a
 longside external data, making the system a true literature review assistant.
 
 ---
+
+## 🛣️ Recommended Roadmap Refinement
+Your proposed roadmap is excellent. I'll simply re-prioritize and refine the steps based on the dependencies and the functional gaps exposed by our recent debugging sessions (search resilience).
+
+***Priority,Action,Goal / Fixes***
+**P1.1** (CRITICAL),Implement Planning Agent + Multi-Query Strategy,"
+Fixes Search Resilience: This agent generates the robust Strict, Moderate, and Broad search queries needed to fix the failures we saw in the ""Aptamer"" and ""Quantum"" tests."
+
+**P1.2** (CORE P2),Add PDF Upload + Parsing Node,Completes Project 2 Core: 
+Unlocks the use of user-supplied documents for RAG. Use a library like PyMuPDF for text extraction.
+
+**P2.1** (ADVANCED P1),Add Research Planner Node,Completes Project 1 Core: 
+Adds Hypothesis Generation and Step-by-Step Methodology Planning.
+
+**P2.2** (STRUCTURAL),Add Ontology & Knowledge Graph Layer,"Completes P1/P2 Knowledge Goals: 
+Defines the schema (e.g., Paper → Method → Result) and uses it to extract and store structured relations, moving beyond unstructured FAISS vectors."
+
+**P3.1** (UTILITY),Add Citation Manager,Utility feature: 
+Generates BibTeX and formats citations for easy external use.
+
+**P3.2** (UTILITY),Add Clustering Visualization,Utility feature: 
+Visual representation of topic clusters to improve user analysis.
+
+---
+
+
 
