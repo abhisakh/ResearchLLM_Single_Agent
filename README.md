@@ -335,40 +335,61 @@ Visual representation of topic clusters to improve user analysis.
 ---
 
 ## Multi-Agent Architecture (MAS) (Redirection)
-Fundamentally about managing complexity and improving resilience,
 
-### 🚀 How MAS Copes with Complex StrategyThe Multi-Agent Approach replaces a single, monolithic orchestration script with a team of specialized, independent agents. 
+**Fundamentally about managing complexity and improving resilience,**
+
+### 🚀 How MAS Copes with Complex Strategy
+The Multi-Agent Approach replaces a single, monolithic orchestration script with a team of specialized, independent agents. 
 This allows the system to tackle complex strategies like the tiered search and dual filtering by **delegating specialized tasks** to the best-suited agent.
+
 **1.** ****Delegation and Specialization****
 In our current single-agent system, the primary orchestrator **route_to_tool** function) has to know everything: 
 how to clean the query, how to run **PubMed**, how to run **ArXiv**, and how to coordinate all the parallel steps.
 In a MAS, the complexity is distributed:
+
 - ****Planning Agent:**** Handles the most complex task of generating resilient search strategies (Strict, Moderate, Broad queries).
   It doesn't perform the search; it just plans it.
+  
 - ****Academic Agent**** (**ArXiv**, **PubMed**): Handles the API-specific complexity, like the **4-Tier Query Priority** and API rate limits.
   It executes the plan provided by the Planning Agent.
+  
 - ****RAG Agent:**** Handles the specialized Vector Search and the Dual Filtration logic. It doesn't worry about where the data came from.
   This delegation allows each piece of code to be simpler, focusing only on its core job.2.
 
 **2.** ****Resilience to Search Failures****
+
 - ****Planning Agent**** (The Core Fix)The MAS directly addresses the search failure vulnerability (like the irrelevant papers returned in the "Quantum Entanglement" query) by introducing a dedicated.
+  
 - ****Single Agent:**** If the initial complex semantic search fails, the agent is often forced to use irrelevant data.
+  
 - ****MAS:**** The Planning Agent proactively tests multiple, smartly constructed queries.
   It provides the Academic Agent with a Strict query, a Moderate query, and a Broad fallback.
   This layered approach ensures that even if the user's specific term fails, a high-quality, relevant fallback is executed, guaranteeing a functional result.
 
 **3.** ****Asynchronous Execution and Throughput****
+
 - In the current model, the ****secondary_tool_executor**** runs tools in parallel but is still bound by the limitations of the single-script environment.
   In a true ****MAS Agents**** can communicate asynchronously. The Supervisor can launch the ****PubMed Agent**** and ****ArXiv Agent**** simultaneously
   and immediately move on to check the Web Agent's results, reacting to the first incoming data without waiting for the others.
   This significantly increases throughput and responsiveness.
+  
 ---
 
 ## 💡 The Core Motivation: 
+
  Resilience and ScalabilityThe primary motivation for the MAS upgrade is two-fold:
+ 
 **1.** Resilience to Failure: The MAS ensures no single search failure (like irrelevant ****ArXiv**** results) can destroy the entire research process,
   as the Planning Agent provides layered fallbacks, and the Supervisor can handle agent failure gracefully.
+  
 **2.** Architectural Scalability: It provides the necessary structure to easily integrate complex future requirements:
+
   - Adding a ***Research Planner Agent (P2.1)*** is now just another module reporting to the Supervisor.
+  - 
   - Adding a ***Knowledge Graph Agent (P2.2)*** is a simple integration without affecting the core search tools.The MAS moves the
   system from a fragile, custom script to a professional, scalable, and highly resilient Research Operating System.
+
+---
+
+
+
