@@ -37,8 +37,6 @@ research-agent/
 │   ├── graph.py                 # Compiled LangGraph workflow + visualization
 │   ├── chat_history.db          # SQLite DB (auto-generated)
 │
-├── core/
-│   └── research_agent_core.py   # Merged LangGraph declarative logic
 │
 ├── frontend/
 │   └── main_ui.py               # Streamlit GUI
