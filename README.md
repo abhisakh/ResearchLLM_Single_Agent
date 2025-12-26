@@ -22,7 +22,7 @@ The Declarative Research Agent is an end-to-end scientific research assistant th
 - Visualizes the full LangGraph workflow as a PNG
 
 ### The system is composed of three major modules:
-1. LangGraph Workflow (research_agent_core.py / graph.py)
+1. LangGraph Workflow (research_agent_core.py / graph
 2. FastAPI Backend (backend.py)
 3. Streamlit Frontend (main_ui.py)
 
